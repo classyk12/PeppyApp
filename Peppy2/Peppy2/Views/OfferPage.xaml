@@ -1,0 +1,31 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage BackgroundColor="White" Title="Offers" xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:ffImage="clr-namespace:FFImageLoading.Forms;assembly=FFImageLoading.Forms"      
+             xmlns:ffTransformation="clr-namespace:FFImageLoading.Transformations;assembly=FFImageLoading.Transformations"
+             x:Class="Peppy2.Views.OfferPage">
+    <StackLayout>
+        <ActivityIndicator x:Name="activity" Color="Purple" HeightRequest="50" WidthRequest="50"></ActivityIndicator>
+        
+        <ListView x:Name="OfferLV" HasUnevenRows="True" SeparatorVisibility="None" BackgroundColor="White">
+            <ListView.ItemTemplate>
+                <DataTemplate>
+                    <ViewCell>
+                        <StackLayout Padding="0,10,0,10">
+                            <ffImage:CachedImage Source="{Binding FullImagePath}" HeightRequest="500" WidthRequest="500" Aspect="AspectFill"
+                                                 LoadingPlaceholder="Loading.." ErrorPlaceholder="Error Loading Image..">
+                                <ffImage:CachedImage.Transformations>
+                                    <ffTransformation:CornersTransformation CornersTransformType="RightRounded"></ffTransformation:CornersTransformation>
+                                </ffImage:CachedImage.Transformations>
+                            </ffImage:CachedImage>
+                            
+                        </StackLayout>
+                    </ViewCell>
+                </DataTemplate>
+            </ListView.ItemTemplate>
+        </ListView>
+    </StackLayout>
+   
+    
+    
+</ContentPage>

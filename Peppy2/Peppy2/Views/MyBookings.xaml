@@ -1,0 +1,108 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage Title="My Bookings" xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:ic="clr-namespace:ImageCircle.Forms.Plugin.Abstractions;assembly=ImageCircle.Forms.Plugin"
+             xmlns:local="clr-namespace:Peppy2.Controls"
+             x:Class="Peppy2.Views.MyBookings">
+    
+    <AbsoluteLayout>
+        <ContentView x:Name="NoBookingCV" AbsoluteLayout.LayoutBounds="0,0,1,1" AbsoluteLayout.LayoutFlags="All">
+            <StackLayout HorizontalOptions="Center" VerticalOptions="Center">
+                <Image Source="box.png" Aspect="AspectFit"></Image>
+                <Label HorizontalTextAlignment="Center" Text="You have no bookings yet!" FontSize="Small"></Label>
+                <Button  x:Name="scheduleBtn" Clicked="scheduleBtn_Clicked" Text="Schedule a Cleaning" BackgroundColor="SteelBlue" TextColor="White" HorizontalOptions="Center"></Button>
+            </StackLayout>
+        </ContentView>
+        
+        <!--contentview for sorted booking data-->
+        <ContentView x:Name="SortedCV" AbsoluteLayout.LayoutBounds="0,0,1,1" AbsoluteLayout.LayoutFlags="All">
+            <StackLayout>
+                <Button x:Name="UnSortBtn"  Margin="5" BackgroundColor="Tomato" BorderRadius="15" TextColor="White" Text="Show UnSorted Bookings"
+                        Clicked="UnsortedClicked" FontSize="Small"></Button>
+                <StackLayout Orientation="Horizontal" Spacing="10">
+                    <Label x:Name="SortedLvl" TextColor="Tomato" FontSize="Medium" FontAttributes="Bold" Margin="10,0,0,5"></Label>
+                    <ActivityIndicator x:Name="trueactivity" Color="Purple" HeightRequest="30" WidthRequest="30" HorizontalOptions="EndAndExpand"></ActivityIndicator>
+                </StackLayout>
+                
+                <ListView x:Name="CompletedLV" SeparatorVisibility="Default" SeparatorColor="DarkGray"
+                      HasUnevenRows="True" BackgroundColor="White" Margin="0,0,0,10" ItemSelected="CompletedLV_ItemSelected">
+                    <ListView.ItemTemplate>
+                        <DataTemplate>
+                            <ViewCell>
+                                <StackLayout Padding="20">
+                                    <Label Text="{Binding FormatedBookingId}" TextColor="Gray" FontSize="Medium" FontAttributes="Bold"></Label>
+                                    <StackLayout Orientation="Horizontal" Spacing="5">
+                                        <Label Text="Status: " TextColor="DarkGray" FontSize="Small"></Label> 
+                                        <Label Text="{Binding IsDone}" TextColor="Tomato" FontSize="Small" FontAttributes="Bold"></Label>
+
+                                        <StackLayout Orientation="Horizontal" HorizontalOptions="EndAndExpand" Spacing="5">
+                                            <Label Text="Date Created: " TextColor="DarkGray" FontSize="Small"></Label>
+                                            <Label Text="{Binding DateAdded}" TextColor="Tomato" FontSize="Small" FontAttributes="Bold"></Label>
+                                        </StackLayout>
+                                    </StackLayout>
+                                </StackLayout>
+                            </ViewCell>
+                        </DataTemplate>
+                    </ListView.ItemTemplate>
+                </ListView>
+
+
+                <StackLayout Orientation="Horizontal" Spacing="10">
+                    <Label x:Name="UnsortedLbl" TextColor="Tomato" FontSize="Medium" FontAttributes="Bold" Margin="10,0,0,5"></Label>
+                    <ActivityIndicator x:Name="falseactivity" Color="Purple" HeightRequest="30" WidthRequest="30" HorizontalOptions="EndAndExpand"></ActivityIndicator>
+                </StackLayout>
+                <ListView x:Name="UnCompletedLV" SeparatorVisibility="Default" SeparatorColor="DarkGray"
+                      HasUnevenRows="True" BackgroundColor="White" Margin="0,0,0,20" ItemSelected="UnCompletedLV_ItemSelected">
+                    <ListView.ItemTemplate>
+                        <DataTemplate>
+                            <ViewCell>
+                                <StackLayout Padding="20">
+                                    <Label Text="{Binding FormatedBookingId}" TextColor="Gray" FontSize="Medium" FontAttributes="Bold"></Label>
+                                    <StackLayout Orientation="Horizontal" Spacing="5">
+                                        <Label Text="Status: " TextColor="DarkGray" FontSize="Small"></Label>
+                                        <Label Text="{Binding IsDone}" TextColor="Tomato" FontSize="Small" FontAttributes="Bold"></Label>
+
+                                        <StackLayout Orientation="Horizontal" HorizontalOptions="EndAndExpand" Spacing="5">
+                                            <Label Text="Date Created: " TextColor="DarkGray" FontSize="Small"></Label>
+                                            <Label Text="{Binding DateAdded}" TextColor="Tomato" FontSize="Small" FontAttributes="Bold"></Label>
+                                        </StackLayout>
+                                    </StackLayout>
+                                </StackLayout>
+                            </ViewCell>
+                        </DataTemplate>
+                    </ListView.ItemTemplate>
+                </ListView>
+
+
+
+            </StackLayout>
+        </ContentView>
+
+
+        <StackLayout x:Name="BookingSL" AbsoluteLayout.LayoutBounds="0,0,1,1" AbsoluteLayout.LayoutFlags="All">
+            <ActivityIndicator x:Name="bookingactivity" Color="Purple" HeightRequest="50" WidthRequest="50"></ActivityIndicator>
+            <Button x:Name="SortedBtn" Margin="5" BackgroundColor="Tomato" BorderRadius="15" TextColor="White" Text="Show Sorted Bookings" Clicked="SortedClicked" FontSize="Small"></Button>
+            <ListView x:Name="bookingLV" SeparatorVisibility="Default" SeparatorColor="DarkGray" IsPullToRefreshEnabled="True" Refreshing="bookingLV_Refreshing"
+                      HasUnevenRows="True" BackgroundColor="White"  ItemSelected="bookingLV_ItemSelected" >
+                <ListView.ItemTemplate>
+                    <DataTemplate>
+                        <ViewCell>
+                        <StackLayout Padding="20">
+                                <Label Text="{Binding FormatedBookingId}" TextColor="Gray" FontSize="Medium" FontAttributes="Bold"></Label>
+                                <StackLayout Orientation="Horizontal" Spacing="5">
+                                    <Label Text="Status: " TextColor="DarkGray" FontSize="Small"></Label>
+                                    <Label Text="{Binding IsDone}" TextColor="Tomato" FontSize="Small" FontAttributes="Bold"></Label>
+
+                                    <StackLayout Orientation="Horizontal" HorizontalOptions="EndAndExpand" Spacing="5">
+                                        <Label Text="Date Created: " TextColor="DarkGray" FontSize="Small"></Label>
+                                        <Label Text="{Binding DateAdded}" TextColor="Tomato" FontSize="Small" FontAttributes="Bold"></Label>
+                                    </StackLayout>
+                                </StackLayout>
+                        </StackLayout>
+                        </ViewCell>
+                    </DataTemplate>
+                </ListView.ItemTemplate>
+            </ListView>
+        </StackLayout>
+    </AbsoluteLayout>
+</ContentPage>

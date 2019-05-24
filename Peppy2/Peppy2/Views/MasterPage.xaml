@@ -1,0 +1,100 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage Title="PeppyCleaners"  xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:local="clr-namespace:Peppy2"
+             xmlns:local2="clr-namespace:Peppy2.Views"
+             xmlns:ic="clr-namespace:ImageCircle.Forms.Plugin.Abstractions;assembly=ImageCircle.Forms.Plugin"
+             xmlns:local1="clr-namespace:Peppy2.Models"
+             x:Class="Peppy2.Views.MasterPage">
+   
+    <StackLayout>
+        
+        <StackLayout Padding="20" BackgroundColor="SteelBlue" Margin="0,0,0,10">
+            <ic:CircleImage x:Name="profileImg" Aspect="AspectFit" WidthRequest="80" HeightRequest="80" BorderThickness="1"  
+                            BorderColor="White" HorizontalOptions="Center"></ic:CircleImage>
+            <Label x:Name="usernameLbl"  HorizontalTextAlignment="Center" FontSize="Medium" TextColor="White" FontAttributes="Bold"></Label>
+            <Label HorizontalTextAlignment="Center"   x:Name="emailLbl" TextColor="White" FontSize="Medium" FontAttributes="Bold"></Label>
+            <Label HorizontalTextAlignment="Center"   x:Name="dateLbl" FontSize="Small" TextColor="White"></Label>
+        </StackLayout>
+        
+
+        <ListView x:Name="listView" x:FieldModifier="public" SeparatorVisibility="None" HasUnevenRows="True" Margin="0,0,0,10">
+            <ListView.ItemsSource >
+                <x:Array Type="{x:Type local1:MasterPageItems}">
+                    <local1:MasterPageItems
+                        Title="Dashboard" 
+                        Icon="stopwatch.png"  
+                        TargetType="{x:Type local2:Dashboard}"
+                    />
+
+                    <local1:MasterPageItems 
+                        Title="My Bookings" 
+                        Icon="wishlist.png"  
+                        TargetType="{x:Type local2:MyBookings}"
+                    />
+
+                    <local1:MasterPageItems 
+                        Title="Schedule a cleaning" 
+                        Icon="resume.png"  
+                        TargetType="{x:Type local2:FindCleaner}"
+                    />
+
+                    <local1:MasterPageItems 
+                        Title="Feedbacks" 
+                        Icon="speech.png" 
+                        TargetType="{x:Type local2:FeedbackPage}"
+                    />
+
+
+                    <local1:MasterPageItems 
+                        Title="Offers" 
+                        Icon="hand.png" 
+                        TargetType="{x:Type local2:OfferPage    }"
+                    />
+
+
+                    <local1:MasterPageItems 
+                        Title="About" 
+                        Icon="info.png" 
+                        TargetType="{x:Type local2:AboutPage}"
+                    />
+
+                    <local1:MasterPageItems 
+                        Title="How" 
+                        Icon="instruction.png" 
+                        TargetType="{x:Type local2:HowPage}"
+                    />
+                </x:Array>
+
+            </ListView.ItemsSource>
+            <ListView.ItemTemplate>
+                <DataTemplate>
+                    <ViewCell>
+                        <StackLayout Orientation="Horizontal" Spacing="20" Padding="20,30,20,5">
+                            <Image Source="{Binding Icon}" HeightRequest="20"></Image>
+                            <Label Text="{Binding Title}" FontSize="Small"></Label>
+                        </StackLayout>
+
+                    </ViewCell>
+                </DataTemplate>
+            </ListView.ItemTemplate>
+        </ListView>
+
+        <StackLayout Orientation="Horizontal" Padding="20,5,20,10" Spacing="30" >
+            <Image Source="power.png" HeightRequest="20"></Image>
+            <Label Text="Logout" FontSize="Small"></Label>
+            <StackLayout.GestureRecognizers>
+                <TapGestureRecognizer NumberOfTapsRequired="1" Tapped="LogoutEvent"></TapGestureRecognizer>
+            </StackLayout.GestureRecognizers>
+        </StackLayout>
+
+
+
+
+    </StackLayout>
+
+
+  
+    
+
+</ContentPage>

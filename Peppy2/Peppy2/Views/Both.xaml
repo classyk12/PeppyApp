@@ -1,0 +1,118 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<TabbedPage x:Name="tabbedpage" NavigationPage.HasNavigationBar="False"  xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:local="clr-namespace:Peppy2.Controls"
+            xmlns:ic="clr-namespace:ImageCircle.Forms.Plugin.Abstractions;assembly=ImageCircle.Forms.Plugin"
+            xmlns:ffImageLoading="clr-namespace:FFImageLoading.Forms;assembly=FFImageLoading.Forms"
+            xmlns:FFImageTransformation="clr-namespace:FFImageLoading.Transformations;assembly=FFImageLoading.Transformations"
+             x:Class="Peppy2.Views.Both">
+  <!--Pages can be added as references or inline-->
+    
+    <ContentPage Title="Sign In" Icon="user.png">
+        <ScrollView>
+        <AbsoluteLayout>
+            <BoxView AbsoluteLayout.LayoutBounds="0,0,1,0.1" AbsoluteLayout.LayoutFlags="All" BackgroundColor="SteelBlue" Margin="0"></BoxView>
+            <ic:CircleImage Source="peppyred.jpg" AbsoluteLayout.LayoutBounds="0.5,0.05,1,0.2" AbsoluteLayout.LayoutFlags="All" 
+                            Aspect="AspectFit" HeightRequest="50" WidthRequest="50"></ic:CircleImage>
+
+            
+            <StackLayout AbsoluteLayout.LayoutBounds="0,0.65,1,0.6" AbsoluteLayout.LayoutFlags="All" Spacing="0">
+                
+                <Label Text="Username" TextColor="SteelBlue" FontAttributes="Bold" FontSize="Small" Margin="20,10,20,0"></Label>
+                <local:ImageEntry TextChanged="UsernameLoginEntry_TextChanged" x:Name="UsernameLoginEntry" Placeholder="Enter your username" TextColor="Black" Image="username" ImageHeight="10"
+           ImageWidth="10" ImageAlignment="Right" LineColor="DarkGray" HeightRequest="50" WidthRequest="50" Margin="15,0,15,0" FontSize="Small"></local:ImageEntry>
+                <Label  x:Name="errorlbl" TextColor="DarkRed" FontSize="Small" Margin="20,0,20,10" FontAttributes="Italic"></Label>
+
+                <Label Text="Password" TextColor="SteelBlue" FontAttributes="Bold" FontSize="Small" Margin="20,10,20,0"></Label>
+                <Entry IsPassword="true" TextChanged="PasswordLoginEntry_TextChanged" x:Name="PasswordLoginEntry" Placeholder="Password" TextColor="Black" Margin="15,0,15,0" FontSize="Small">
+                    <Entry.Effects>
+                        <local:PasswordEffect />
+                    </Entry.Effects>
+                </Entry>
+                <Label  x:Name="errorlbl2" TextColor="DarkRed" FontSize="Small" Margin="20,0,20,10" FontAttributes="Italic"></Label>
+
+                <Button x:Name="signInBtn" Text="SIGN IN" BorderRadius="30" BackgroundColor="SteelBlue" Margin="30,30,30,20" TextColor="White" Clicked="LoginClickEvent"></Button>
+                <Label Text="Forgot Password?" TextColor="Black" FontAttributes="Bold" FontSize="Medium" HorizontalTextAlignment="Center" Margin="0,0,0,20"></Label>
+                <Button BackgroundColor="Transparent" Text="SIGN IN WITH FACEBOOK" BorderColor="SteelBlue" BorderWidth="3" TextColor="SteelBlue" BorderRadius="30" Margin="30,0,30,20"></Button>
+
+                <StackLayout Orientation="Horizontal" Spacing="5" HorizontalOptions="Center">
+                    <Label Text="Dont have an account?" TextColor="Black" FontSize="Small" HorizontalTextAlignment="Center"></Label>
+                    <Label Text="Swipe left" FontAttributes="Bold" FontSize="Small" TextColor="SteelBlue"></Label>
+                </StackLayout>
+            </StackLayout>
+        </AbsoluteLayout>
+        </ScrollView>
+    </ContentPage>
+    
+    
+    
+    
+    
+    
+    
+    
+
+    <ContentPage Title="Sign Up" Icon="resume.png">
+
+        <ScrollView>
+            <AbsoluteLayout>
+            <BoxView AbsoluteLayout.LayoutBounds="0,0,1,0.1" AbsoluteLayout.LayoutFlags="All" BackgroundColor="SteelBlue"></BoxView>
+                            
+                
+                <ic:CircleImage x:Name="profilepic" Source="peppyred.jpg" AbsoluteLayout.LayoutBounds="0.5,0.05,1,0.15" AbsoluteLayout.LayoutFlags="All"
+                            Aspect="AspectFit" HeightRequest="50" BorderThickness="1" BorderColor="White" WidthRequest="50">
+                    <ic:CircleImage.GestureRecognizers>
+                        <TapGestureRecognizer NumberOfTapsRequired="1" Tapped="ProfileImageTapped"></TapGestureRecognizer>
+                    </ic:CircleImage.GestureRecognizers>
+                </ic:CircleImage>
+               
+
+            <StackLayout AbsoluteLayout.LayoutBounds="0,0.8,1,0.7" AbsoluteLayout.LayoutFlags="All" Spacing="0">
+                    <Label Text="Tap on the peppy image to upload your profile picture" FontSize="Small" TextColor="DarkGray" HorizontalOptions="Center"></Label>
+                    <Label Text="Fields marked * are required" FontSize="Small" TextColor="DarkRed" FontAttributes="Italic" Margin="20"></Label>
+                
+                <Label Text="Email*" TextColor="SteelBlue" FontAttributes="Bold" FontSize="Small" Margin="20,10,20,0"></Label>
+                <local:ImageEntry TextChanged="emailEntry_TextChanged" x:Name="emailEntry" Placeholder="Enter Email" TextColor="Black" Image="username" ImageHeight="10"
+           ImageWidth="10" ImageAlignment="Right" LineColor="DarkGray" HeightRequest="50" WidthRequest="50" Margin="15,0,15,0" FontSize="Small"></local:ImageEntry>
+                    <Label x:Name="errorlbl3" TextColor="DarkRed" FontSize="Small" Margin="20,0,20,5" FontAttributes="Bold"></Label>
+
+                <Label Text="Username*" TextColor="SteelBlue" FontAttributes="Bold" FontSize="Small" Margin="20,10,20,0"></Label>
+                <local:ImageEntry x:Name="usernameEntry" TextChanged="usernameEntry_TextChanged" Placeholder="Enter Username" TextColor="Black" Image="username" ImageHeight="10"
+           ImageWidth="10" ImageAlignment="Right" LineColor="DarkGray" HeightRequest="50" WidthRequest="50" Margin="15,0,15,0" FontSize="Small"></local:ImageEntry>
+                    <Label  x:Name="errorlbl4" TextColor="DarkRed" FontSize="Small" Margin="20,0,20,5" FontAttributes="Bold" IsVisible="True"></Label>
+
+                <Label Text="Password*" TextColor="SteelBlue" FontAttributes="Bold" FontSize="Small" Margin="20,10,20,0"></Label>
+                <Entry TextChanged="passwordEntry_TextChanged" FontSize="Small" IsPassword="true" x:Name="passwordEntry" Placeholder="Password" TextColor="Black" Margin="15,0,15,0">
+                    <Entry.Effects>
+                        <local:PasswordEffect />
+                    </Entry.Effects>
+                </Entry>
+                <Label x:Name="errorlbl5" TextColor="DarkRed" FontSize="Small" Margin="20,0,20,5" FontAttributes="Bold"></Label>
+
+                <Label Text="Confirm Password*" TextColor="SteelBlue" FontAttributes="Bold" FontSize="Small" Margin="20,10,20,0"></Label>
+                <Entry TextChanged="passwordEntry2_TextChanged" IsPassword="true" x:Name="passwordEntry2" Placeholder="Confirm Password" TextColor="Black" Margin="15,0,15,0" FontSize="Small">
+                    <Entry.Effects>
+                        <local:PasswordEffect />
+                    </Entry.Effects>
+                </Entry>
+                    <Label  x:Name="errorlbl6" TextColor="DarkRed" FontSize="Small" Margin="20,0,20,5" FontAttributes="Bold"></Label>
+
+                <Label Text="Phone Number*" TextColor="SteelBlue" FontAttributes="Bold" FontSize="Small" Margin="20,10,20,0"></Label>
+                    <local:ImageEntry TextChanged="phonenumberEntry_TextChanged" Keyboard="Telephone" x:Name="phonenumberEntry"
+                                      Placeholder="Enter a Valid Number" TextColor="Black" Image="phone" ImageHeight="10"
+           ImageWidth="10" ImageAlignment="Right" LineColor="DarkGray" HeightRequest="50" WidthRequest="50" Margin="15,0,15,0" FontSize="Small"></local:ImageEntry>
+                    <Label  x:Name="errorlbl7"  TextColor="DarkRed"
+                            FontSize="Small" Margin="20,0,20,5"  FontAttributes="Bold"></Label>
+
+                <Button x:Name="SignupBtn" Text="SIGN UP" BorderRadius="30" BackgroundColor="SteelBlue" Margin="30,20,30,20" TextColor="White" Clicked="SignUpClickEvent"></Button>
+               
+                <StackLayout Orientation="Horizontal" Spacing="5" HorizontalOptions="Center">
+                    <Label Text="Already a User?" TextColor="Black" FontSize="Small" HorizontalTextAlignment="Center"></Label>
+                    <Label Text="Swipe right" FontAttributes="Bold" FontSize="Small" TextColor="SteelBlue"></Label>
+                </StackLayout>
+            </StackLayout>
+        </AbsoluteLayout>
+     </ScrollView>
+    </ContentPage>
+
+</TabbedPage>

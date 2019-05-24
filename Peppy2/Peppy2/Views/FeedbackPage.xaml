@@ -1,0 +1,114 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage Title="Feedbacks" xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:local="clr-namespace:Peppy2.Models"
+             xmlns:extended="clr-namespace:Xamarin.Forms.Extended;assembly=Xamarin.Forms.Extended.InfiniteScrolling"
+             x:Class="Peppy2.Views.FeedbackPage">
+
+    <ContentPage.BindingContext>
+        <local:MainViewModel></local:MainViewModel>
+    </ContentPage.BindingContext>
+    
+    <StackLayout Padding="10" BackgroundColor="White">
+      
+        <Grid BackgroundColor="White" ColumnSpacing="5" RowSpacing="5" Margin="0,10,0,20">
+            <Grid.RowDefinitions>
+                <RowDefinition Height="2*"></RowDefinition>
+            </Grid.RowDefinitions>
+
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="2*"></ColumnDefinition>
+                <ColumnDefinition Width="2*"></ColumnDefinition>
+                <ColumnDefinition Width="2*"></ColumnDefinition>
+            </Grid.ColumnDefinitions>
+
+            <StackLayout Grid.Column="0" Grid.Row="0" HorizontalOptions="Center" VerticalOptions="Center" Margin="0,0,0,10">
+                <StackLayout Orientation="Horizontal" HorizontalOptions="Center" VerticalOptions="Center" Spacing="2" >
+                    <Label Text="Total Rating" FontSize="Small" VerticalTextAlignment="Center" HorizontalTextAlignment="Center"></Label>
+                    <ActivityIndicator HeightRequest="10" WidthRequest="10" x:Name="ratingactivity" Color="Purple"></ActivityIndicator>
+                </StackLayout>             
+                <Label x:Name="RatingLbl" FontSize="30" FontAttributes="Bold" VerticalTextAlignment="Center" HorizontalTextAlignment="Center"></Label>
+            </StackLayout>
+
+            <StackLayout Grid.Column="1" Grid.Row="0" HorizontalOptions="Center" VerticalOptions="Center" Margin="0,0,0,10">
+                <StackLayout Orientation="Horizontal" HorizontalOptions="Center" VerticalOptions="Center" Spacing="2" >
+                    <Label Text="All Feedbacks" FontSize="Small" VerticalTextAlignment="Center" HorizontalTextAlignment="Center"></Label>
+                    <ActivityIndicator HeightRequest="10" WidthRequest="10" x:Name="feedbaclactivity" Color="Purple"></ActivityIndicator>
+                </StackLayout>
+                <Label x:Name="FeedbackNoLbl" FontSize="30" FontAttributes="Bold" VerticalTextAlignment="Center" HorizontalTextAlignment="Center"></Label>
+            </StackLayout>
+
+            <StackLayout Grid.Column="2" Grid.Row="0" HorizontalOptions="Center" VerticalOptions="Center" Margin="0,0,0,10">
+                <StackLayout Orientation="Horizontal" HorizontalOptions="Center" VerticalOptions="Center" Spacing="2">
+                    <Label Text="All Users" FontSize="Small" VerticalTextAlignment="Center" HorizontalTextAlignment="Center"></Label>
+                    <ActivityIndicator HeightRequest="10" WidthRequest="10" x:Name="useractivity" Color="Purple"></ActivityIndicator>
+                </StackLayout>
+                <Label x:Name="TotaluserLbl" FontSize="30" FontAttributes="Bold" VerticalTextAlignment="Center" HorizontalTextAlignment="Center"></Label>
+            </StackLayout>
+        </Grid>
+        <StackLayout Spacing="8" Padding="0" Margin="0,30,0,10">
+            <BoxView BackgroundColor="DarkGray" HeightRequest="1"></BoxView>
+            <Label x:Name="FeedbackBtn" Text="Write A Review" TextColor="IndianRed" FontSize="20" FontAttributes="Bold">
+                <Label.GestureRecognizers>
+                    <TapGestureRecognizer Tapped="LabelTapped"></TapGestureRecognizer>
+                </Label.GestureRecognizers>
+            </Label>
+            <BoxView BackgroundColor="DarkGray" HeightRequest="1"></BoxView>
+        </StackLayout>
+
+        <ActivityIndicator HeightRequest="50" WidthRequest="50" Color="Purple" VerticalOptions="Center" HorizontalOptions="Center" IsEnabled="{Binding Load}"
+                           IsVisible="{Binding Load}" IsRunning="{Binding Load}"></ActivityIndicator>
+        
+        <ListView ItemsSource="{Binding Items}" CachingStrategy="RecycleElement" x:Name="feedbackLV" SeparatorVisibility="Default" BackgroundColor="White" HasUnevenRows="True"
+                  SeparatorColor="DarkGray" ItemSelected="FeedbackLV_ItemSelected" IsPullToRefreshEnabled="True"
+                  Refreshing="feedbackLV_Refreshing">
+
+          
+
+
+            <ListView.Behaviors>
+                <extended:InfiniteScrollBehavior IsLoadingMore="{Binding IsBusy}"></extended:InfiniteScrollBehavior>
+            </ListView.Behaviors>
+
+            <ListView.ItemTemplate>
+                <DataTemplate>
+                    <ViewCell>
+                        <StackLayout Padding="10">
+                            <StackLayout Orientation="Horizontal" Spacing="3">
+
+                                <Label FontSize="Medium" Text="{Binding Title}" FontAttributes="Bold" TextColor="Black"></Label>
+                            </StackLayout>
+                            <Label x:Name="bodyLbl" Text="{Binding Body}" TextColor="Black" FontAttributes="Italic" FontSize="Small"></Label>
+                            <StackLayout Orientation="Horizontal" Spacing="5">
+                                <Label Text="User Rating:" FontAttributes="Bold" TextColor="IndianRed" FontSize="Small"></Label>
+                                <Label Text="{Binding Rating}" FontAttributes="Bold" TextColor="IndianRed" FontSize="Small"></Label>
+                                <Label Text="Posted by:" FontAttributes="Bold" TextColor="Black" FontSize="Small"></Label>
+                                <Label Text="{Binding username}" FontAttributes="Italic" TextColor="Violet" FontSize="Small"></Label>
+                                <Label Text="on" FontAttributes="Bold" TextColor="Black" FontSize="Small"></Label>
+                                <Label Text="{Binding ShortDate}" FontAttributes="Italic" TextColor="Black" FontSize="Small"></Label>
+                            </StackLayout>
+                        </StackLayout>
+                    </ViewCell>
+
+                </DataTemplate>
+            </ListView.ItemTemplate>
+
+            <ListView.Footer>
+                <StackLayout IsVisible="{Binding IsBusy}" Padding="6" Orientation="Horizontal">
+                    <StackLayout.Triggers>
+                        <Trigger TargetType="StackLayout" Property="IsVisible" Value="False" >
+                            <Setter Property="HeightRequest" Value="0"></Setter>
+                        </Trigger>
+                    </StackLayout.Triggers>
+                    <ActivityIndicator HeightRequest="30" WidthRequest="30" Color="Purple" VerticalOptions="Center" HorizontalOptions="Center" IsEnabled="True"
+                                       IsVisible="True" IsRunning="True"></ActivityIndicator>
+                  
+                    
+                </StackLayout>
+            </ListView.Footer>
+
+        </ListView>
+    </StackLayout>
+  
+   
+</ContentPage>

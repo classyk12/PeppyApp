@@ -1,0 +1,123 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage Title="Update Booking" xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="Peppy2.Views.UpdateBookingPage2">
+
+    <ScrollView>
+        <Frame HasShadow="True" OutlineColor="Gray" Padding="10">
+        <StackLayout x:Name="MainSL" Padding="0" Margin="0,5,0,0">
+            
+            <Label x:Name="infoLbl" TextColor="Red" FontSize="Small" HorizontalOptions="Center" Margin="5" IsVisible="False"></Label>
+            <StackLayout Margin="0,0,0,5">
+                <Label Text="Service Type" FontSize="Small" TextColor="DarkGray" VerticalTextAlignment="Center" ></Label>
+                <Label x:Name="servicetypeLbl" FontSize="Medium" TextColor="Black" VerticalTextAlignment="Center"></Label>
+            </StackLayout>
+            <BoxView Color="DarkGreen" HeightRequest="1"></BoxView>
+
+            <StackLayout Margin="0,0,0,5">
+                <Label Text="Service Duration" FontSize="Small" VerticalTextAlignment="Center"  TextColor="DarkGray" ></Label>
+                <Label x:Name="servicedurationLbl" FontSize="Medium" TextColor="Black" VerticalTextAlignment="Center"></Label>
+            </StackLayout>
+            <BoxView Color="DarkGreen" HeightRequest="1"></BoxView>
+
+            <StackLayout  Margin="0,0,0,5">
+                <Label Text="Your First Cleaning Date" FontSize="Small" VerticalTextAlignment="Center"  TextColor="DarkGray" ></Label>
+                <Label x:Name="FirstcleaningdateLbl" FontSize="Medium" TextColor="Black" VerticalTextAlignment="Center"></Label>
+            </StackLayout>
+            <BoxView Color="DarkGreen" HeightRequest="1"></BoxView>
+
+            <StackLayout  Margin="0,0,0,5">
+                <Label Text="Your Last Cleaning Date" FontSize="Small" VerticalTextAlignment="Center"  TextColor="DarkGray" ></Label>
+                <Label x:Name="LastcleaningdateLbl" FontSize="Medium" TextColor="Black" VerticalTextAlignment="Center"></Label>
+            </StackLayout>
+            <BoxView Color="DarkGreen" HeightRequest="1"></BoxView>
+
+            <StackLayout  Margin="0,0,0,5">
+                <Label Text="Service Time" FontSize="Small" VerticalTextAlignment="Center"  TextColor="DarkGray" ></Label>
+                <Label x:Name="servicetimeLbl" FontSize="Medium" TextColor="Black" VerticalTextAlignment="Center"></Label>
+            </StackLayout>
+            <BoxView Color="DarkGreen" HeightRequest="1"></BoxView>
+
+            <StackLayout  Margin="0,0,0,5">
+                <Label Text="Extra Description" FontSize="Small" TextColor="DarkGray"></Label>
+                <Label x:Name="extradescriptionLbl" FontSize="Medium" TextColor="Black" VerticalTextAlignment="Center"></Label>
+            </StackLayout>
+            <BoxView Color="DarkGreen" HeightRequest="1"></BoxView>
+
+            <StackLayout  Margin="0,0,0,5">
+                <Label Text="Do you Need Ironing?" FontSize="Small" TextColor="DarkGray"></Label>
+                <Label x:Name="ironingLbl" FontSize="Medium" TextColor="Black" VerticalTextAlignment="Center"></Label>
+            </StackLayout>
+            <BoxView Color="DarkGreen" HeightRequest="1"></BoxView>
+
+            <StackLayout  Margin="0,0,0,5">
+                <Label Text="Do you Need Cleaning Materials?" FontSize="Small" TextColor="DarkGray"></Label>
+                <Label x:Name="cleaningmaterialLbl" FontSize="Medium" TextColor="Black" VerticalTextAlignment="Center"></Label>
+            </StackLayout>
+            <BoxView Color="DarkGreen" HeightRequest="1"></BoxView>
+
+            <StackLayout  Margin="0,0,0,5">
+                <Label Text="Total Cleaning Cost" FontSize="Small" TextColor="DarkGray"></Label>
+                <Label x:Name="TotalcostLbl" FontSize="Medium" TextColor="Black" VerticalTextAlignment="Center"></Label>
+            </StackLayout>
+            <BoxView Color="DarkGreen" HeightRequest="1"></BoxView>
+
+
+            <Label Text="Service Address" FontSize="30" HorizontalTextAlignment="Center" FontAttributes="Bold" TextColor="DarkGray" Margin="10"></Label>
+
+
+            <StackLayout  Margin="0,0,0,5">
+                <Label Text="City" FontSize="Small" TextColor="DarkGray"></Label>
+                <Label x:Name="cityLbl" FontSize="Medium" TextColor="Black" VerticalTextAlignment="Center"></Label>
+            </StackLayout>
+            <BoxView Color="DarkGreen" HeightRequest="1"></BoxView>
+
+            <StackLayout  Margin="0,0,0,5">
+                <Label Text="Street Name" FontSize="Small" TextColor="DarkGray"></Label>
+                <Label x:Name="streetLbl" FontSize="Medium" TextColor="Black" VerticalTextAlignment="Center"></Label>
+            </StackLayout>
+            <BoxView Color="DarkGreen" HeightRequest="1"></BoxView>
+
+            <StackLayout  Margin="0,0,0,5">
+                <Label Text="House Number" FontSize="Small" TextColor="DarkGray"></Label>
+                <Label x:Name="housenumberLbl" FontSize="Medium" TextColor="Black" VerticalTextAlignment="Center"></Label>
+            </StackLayout>
+            <BoxView Color="DarkGreen" HeightRequest="1"></BoxView>
+
+            <StackLayout  Margin="0,0,0,5">
+                <Label Text="Directions and LandMarks" FontSize="Small" TextColor="DarkGray"></Label>
+                <Label x:Name="directionLbl" FontSize="Medium" TextColor="Black" VerticalTextAlignment="Center"></Label>
+            </StackLayout>
+            <BoxView Color="DarkGreen" HeightRequest="1"></BoxView>
+
+            <StackLayout  Margin="0,0,0,5">
+                <Label Text="Do you have Pets?" FontSize="Small" TextColor="DarkGray"></Label>
+                <Label x:Name="petsLbl" FontSize="Medium" TextColor="Black" VerticalTextAlignment="Center"></Label>
+            </StackLayout>
+            <BoxView Color="DarkGreen" HeightRequest="1"></BoxView>
+
+            <StackLayout  Margin="0,0,0,5">
+                <Label Text="Cleaner Mode of Entry" FontSize="Small" TextColor="DarkGray"></Label>
+                <Label x:Name="entryLbl" FontSize="Medium" TextColor="Black" VerticalTextAlignment="Center"></Label>
+            </StackLayout>
+            <BoxView Color="DarkGreen" HeightRequest="1"></BoxView>
+
+            <StackLayout  Margin="0,0,0,5">
+                <Label Text="Payment Method" FontSize="Small" TextColor="DarkGray"></Label>
+                <Label x:Name="methodLbl" FontSize="Medium" TextColor="Black" VerticalTextAlignment="Center"></Label>
+            </StackLayout>
+            <BoxView Color="DarkGreen" HeightRequest="1"></BoxView>
+
+
+        
+         
+
+            <Button x:Name="completedBtn" Text="Mark as Complete" BackgroundColor="SteelBlue" TextColor="White" CornerRadius="10" Margin="0,0,0,5" Clicked="Button_Clicked"></Button>
+
+
+            
+        </StackLayout>
+        </Frame>
+    </ScrollView>
+
+</ContentPage>

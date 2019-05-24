@@ -1,0 +1,126 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<AnimePage:AnimationPage BackgroundColor="White" Title="Schedule Details" xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:AnimePage="clr-namespace:FormsControls.Base;assembly=FormsControls.Base"
+             xmlns:ic="clr-namespace:ImageCircle.Forms.Plugin.Abstractions;assembly=ImageCircle.Forms.Plugin"
+             xmlns:local="clr-namespace:Peppy2.Controls"
+             x:Class="Peppy2.Views.BookingPage">
+    <AnimePage:AnimationPage.PageAnimation>
+        <AnimePage:RotatePageAnimation Duration="Short" Subtype="FromLeft" />
+    </AnimePage:AnimationPage.PageAnimation>
+
+
+    <ScrollView>
+        <StackLayout>
+            <Grid Padding="20,10,20,5" BackgroundColor="DarkBlue">
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="0.25*"></ColumnDefinition>
+                    <ColumnDefinition Width="*"></ColumnDefinition>
+                </Grid.ColumnDefinitions>
+                <ic:CircleImage x:Name="cleanerpic" HorizontalOptions="Center" VerticalOptions="Center" HeightRequest="80"
+                                            WidthRequest="80" Margin="1,5,5,0" Grid.Column="0" BorderThickness="1" BorderColor="White"></ic:CircleImage>
+                <StackLayout Grid.Column="1" Margin="5,5,0,2" HorizontalOptions="Center" VerticalOptions="Center" >
+                    <Label Text="Your Preferred Cleaner is :" TextColor="White" FontSize="Small" HorizontalTextAlignment="Center" VerticalOptions="Center"></Label>
+                    <Label x:Name="cleanernameLbl"  HorizontalTextAlignment="Center" FontAttributes="Bold"
+                           VerticalOptions="Center" FontSize="20" TextColor="White"></Label>
+                    <Label Text="View Cleaner Details" TextColor="White" FontAttributes="Italic" FontSize="Small" HorizontalOptions="Center" HorizontalTextAlignment="Center">
+                        <Label.GestureRecognizers>
+                            <TapGestureRecognizer Tapped="TapGestureRecognizer_Tapped"></TapGestureRecognizer>
+                        </Label.GestureRecognizers>
+                    </Label>
+                </StackLayout>
+            </Grid>
+           
+
+            <StackLayout Spacing="0" Padding="20,10,20,20">
+                <Label Text="HOW OFTEN DO YOU NEED YOUR CLEANER" TextColor="Gray" FontSize="Small" FontAttributes="Bold"></Label>
+                <Picker x:Name="servicepicker" Title="select a service type" TextColor="DarkGray"  WidthRequest="50" HeightRequest="50"
+                                    ItemDisplayBinding="{Binding ServiceType}"  SelectedIndexChanged="servicepicker_SelectedIndexChanged" FontSize="Small"></Picker>
+                <StackLayout Orientation="Horizontal" Spacing="5">
+                    <Image Source="eyes1.png" Aspect="AspectFit"></Image>
+                    <Label Text="see what is always included" FontSize="Small" TextColor="Indigo" FontAttributes="Bold">
+                        <Label.GestureRecognizers>
+                            <TapGestureRecognizer Tapped="TapGestureRecognizer_Tapped_1"></TapGestureRecognizer>
+                        </Label.GestureRecognizers>
+                    </Label>
+                </StackLayout>
+            </StackLayout >
+            <StackLayout Spacing="0" Padding="20,0,20,10">
+                <Label Text="HOW LONG DO YOU WANT YOUR CLEANER TO STAY(Hrs)?" FontSize="Small" TextColor="Gray" FontAttributes="Bold"></Label>
+                <Picker x:Name="durationpicker" HeightRequest="50" Title="Select a duration" TextColor="DarkGray" FontSize="Small"
+                                    WidthRequest="50" ItemDisplayBinding="{Binding stringTime}" SelectedIndexChanged="durationpicker_SelectedIndexChanged"></Picker>
+            </StackLayout>
+            <StackLayout  Spacing="0" Padding="20,10,20,10">
+                <Label Text="WHEN WOULD YOU LIKE YOUR FIRST CLEANING" FontSize="Small" FontAttributes="Bold" TextColor="Gray"></Label>
+                <DatePicker x:Name="startdatepicker" DateSelected="startdatepicker_DateSelected" Format="D"  HeightRequest="50" Date="01/01/2019" TextColor="DarkGray" FontSize="Small"></DatePicker>
+                <Label x:Name="startdateinfolbl" FontSize="Small" TextColor="Red" FontAttributes="Bold"></Label>
+            </StackLayout>
+            <StackLayout Spacing="0" Padding="20,10,20,10">
+                <Label x:Name="endDateLbl" Text="ALL THROUGH TILL?" FontSize="Small" FontAttributes="Bold" TextColor="Gray"></Label>
+                <DatePicker x:Name="enddatepicker" DateSelected="enddatepicker_DateSelected" Format="D" HeightRequest="50" Date="01/01/2019" TextColor="DarkGray" FontSize="Small"></DatePicker>
+                <Label x:Name="InfoLbl" FontSize="Small" TextColor="Red" FontAttributes="Bold"></Label>
+            </StackLayout>
+            <StackLayout Spacing="0" Padding="20,10,20,10">
+                <Label Text="WHAT TIME DO YOU PREFER?" FontSize="Small" FontAttributes="Bold" TextColor="Gray"></Label>
+                <TimePicker x:Name="servicetimepicker" Time="07:00"  Format="t"  HeightRequest="50" TextColor="DarkGray" FontSize="Small"></TimePicker>
+                <Label Text="please take into consideration that there might be a few minutes of delay due to intense traffic"
+                                           TextColor="DarkRed" FontSize="Micro"></Label>
+            </StackLayout>
+
+            <StackLayout  Spacing="0" Padding="20,10,20,10">
+                <Label Text="ANYTHING ELSE WE NEED TO KNOW ABOUT YOUR PLACE? (optional)" FontSize="Small" FontAttributes="Bold" TextColor="Gray"></Label>
+                <Editor x:Name="DescriptionEditor" TextColor="DarkGray" HeightRequest="100" FontSize="Small"></Editor>
+                <StackLayout Orientation="Horizontal">
+                    <Switch x:Name="ironingswitch" OnColor="Purple" VerticalOptions="Center"></Switch>
+                    <Label Text="I need ironing(+1000 Naira)" TextColor="Black" FontSize="Small" FontAttributes="Bold" VerticalOptions="Center"></Label>
+                </StackLayout>
+                <StackLayout>
+                    <StackLayout Orientation="Horizontal">
+                        <Switch x:Name="materialsswitch" Toggled="materialsswitch_Toggled" OnColor="Purple"></Switch>
+                        <Label Text="I need cleaning materials(+1550 Naira)" FontSize="Small" TextColor="Black" FontAttributes="Bold" VerticalOptions="Center"></Label>
+                        <Label Text="RECOMMENDED" TextColor="White"  BackgroundColor="Purple" HorizontalOptions="Center" VerticalOptions="Center" FontSize="Small"></Label>
+                    </StackLayout>
+
+                    <StackLayout Orientation="Horizontal">
+                        <Label Text="Please ensure that you have all cleaning products and equipment prior to the scheduled cleaning."
+                                               TextColor="DarkRed" FontSize="Micro"></Label>
+                    </StackLayout>
+                    <StackLayout Orientation="Horizontal" Spacing="2">
+                        <Image Source="eyes1.png" Aspect="AspectFit"></Image>
+                        <Label Text="Show recommended cleaning products and equipments" FontSize="Small" TextColor="Indigo" FontAttributes="Bold">
+                            <Label.GestureRecognizers>
+                                <TapGestureRecognizer Tapped="TapGestureRecognizer_Tapped_2"></TapGestureRecognizer>
+                            </Label.GestureRecognizers>
+                        </Label>
+                    </StackLayout>
+
+                </StackLayout>
+            </StackLayout>
+
+            <Frame Padding="20" BackgroundColor="Lavender" HasShadow="True" OutlineColor="LightGray">
+            <StackLayout>
+            <StackLayout Orientation="Horizontal"   Spacing="30">
+                <Label Text="Total Cost" TextColor="Black" FontAttributes="Bold" FontSize="20"></Label>
+                    <Label x:Name="totalcostLbl" TextColor="Black" FontAttributes="Bold" Text="0.00"
+                           HorizontalOptions="EndAndExpand" FontSize="20"></Label>
+            </StackLayout>
+
+                <BoxView HeightRequest="1" Color="AliceBlue" Margin="0,5,0,5"></BoxView>
+                <StackLayout Orientation="Horizontal"  Spacing="30">
+                    <Label Text="VAT" TextColor="Black" FontAttributes="Bold" FontSize="20" HorizontalOptions="Center" HorizontalTextAlignment="Center"></Label>
+                    <Label x:Name="VATcostLbl" TextColor="Black" FontAttributes="Bold" Text="0.00" HorizontalOptions="EndAndExpand" FontSize="20"></Label>
+                </StackLayout>
+            </StackLayout>
+            </Frame>
+
+            <Button x:Name="bookBtn" Text="Book Your Cleaner" BackgroundColor="DarkBlue" TextColor="White" Margin="5,0,5,10" CornerRadius="10" Clicked="Button_Clicked"></Button>
+        </StackLayout>
+        
+        
+    </ScrollView>
+
+   
+
+   
+            
+</AnimePage:AnimationPage>

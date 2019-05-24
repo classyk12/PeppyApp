@@ -1,0 +1,98 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<AnimePage:AnimationPage Title="What is Included" xmlns="http://xamarin.com/schemas/2014/forms"
+                         xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+                         xmlns:AnimePage="clr-namespace:FormsControls.Base;assembly=FormsControls.Base"
+                         x:Class="Peppy2.Views.IncludedPage" Padding="10">
+    <AnimePage:AnimationPage.PageAnimation>
+        <AnimePage:SlidePageAnimation Duration="Short" Subtype="FromBottom" />
+    </AnimePage:AnimationPage.PageAnimation>
+
+
+    <ScrollView>
+    <Frame Padding="10" BorderColor="DarkGray" BackgroundColor="White">
+        <StackLayout>
+        <StackLayout Margin="10">
+            <Label Text="Standard Cleaning Package" TextColor="DarkGray" FontAttributes="Bold" HorizontalOptions="Center" FontSize="20"></Label>
+                <Label Text="The following services are included in the Standard Cleaning Package: " TextColor="Gray" HorizontalOptions="Center" Margin="0,0,0,10" FontSize="Large"></Label>
+                <Label Text="All rooms...." TextColor="DarkGray" FontAttributes="Bold" FontSize="Large"></Label>
+            <Label Text="1. Remove Cobwebs" TextColor="Gray" FontSize="Medium"></Label>
+                    <Label Text="2. Dust and clean windows sills and cupboard doors" TextColor="Gray" FontSize="Medium"></Label>
+                    <Label Text="3. Wipe tables and clean all accessible surfaces" TextColor="Gray" FontSize="Medium"></Label>
+                    <Label Text="4. Clean and polish mirrors" TextColor="Gray" FontSize="Medium"></Label>
+                    <Label Text="5. Dust light fittings (if accessible)" TextColor="Gray" FontSize="Medium"></Label>
+                    <Label Text="6. Dust skirting boards" TextColor="Gray" FontSize="Medium"></Label>
+                    <Label Text="7. Vaccum Carpets" TextColor="Gray" FontSize="Medium"></Label>
+                    <Label Text="8. Vaccum and Mop all other floors" TextColor="Gray" FontSize="Medium"></Label>
+                    <Label Text="9. Empty rubbish bins (if outdoor rubbish area accessible)" TextColor="Gray" FontSize="Medium"></Label>
+        </StackLayout>
+
+            <StackLayout Margin="10">
+                    <Label Text="Kitchen...." TextColor="DarkGray" FontAttributes="Bold" FontSize="Large"></Label>
+                    <Label Text="1. Clean all benchtops and splashback" TextColor="Gray" FontSize="Medium"></Label>
+                    <Label Text="2. Clean oven front, hotplates and rangebaords (if accessible)" TextColor="Gray" FontSize="Medium"></Label>
+                    <Label Text="3. Clean exterior of microwave, fridge and dishwasher" TextColor="Gray" FontSize="Medium"></Label>
+                    <Label Text="4. Wipe exterior of all cupboards and drawers" TextColor="Gray" FontSize="Medium"></Label>
+                    <Label Text="5. Dust exterior of all kitchen appliances (coffee machine e.t.c)" TextColor="Gray" FontSize="Medium"></Label>
+                    <Label Text="6. Clean and polish kitchen sinks and taps" TextColor="Gray" FontSize="Medium"></Label>
+            </StackLayout>
+
+
+            <StackLayout Margin="10">
+                    <Label Text="Bathroom...." TextColor="DarkGray" FontAttributes="Bold" FontSize="Large"></Label>
+                    <Label Text="1. clean shower tiles and screens" TextColor="Gray" FontSize="Medium"></Label>
+                    <Label Text="2. Clean bath, basin and vanity" TextColor="Gray" FontSize="Medium"></Label>
+                    <Label Text="3. Clean toilet" TextColor="Gray" FontSize="Medium"></Label>
+                    <Label Text="4. Wipe exterior of all cupboards and drawers" TextColor="Gray" FontSize="Medium"></Label>
+                    <Label Text="5. Empty bins" TextColor="Gray" FontSize="Medium"></Label>
+            </StackLayout>
+
+
+            <StackLayout Margin="10">
+                    <Label Text="Bedrooms...." TextColor="DarkGray" FontAttributes="Bold" FontSize="Large"></Label>
+                    <Label Text="1. Dust Furniture" TextColor="Gray" FontSize="Medium"></Label>
+                    <Label Text="2. Clean and polish all mirrors" TextColor="Gray" FontSize="Medium"></Label>
+            </StackLayout>
+
+
+            <StackLayout Margin="10">
+                    <Label Text="Living area and other rooms...." TextColor="DarkGray" FontAttributes="Bold" FontSize="Large"></Label>
+                    <Label Text="1. Dust furniture(such as couches and chairs)" TextColor="Gray" FontSize="Medium"></Label>
+                    <Label Text="2. Dust electronic Devices" TextColor="Gray" FontSize="Medium"></Label>
+            </StackLayout>
+
+
+            <StackLayout Margin="10">
+                    <Label Text="Bathroom...." TextColor="DarkGray" FontAttributes="Bold" FontSize="Large"></Label>
+                    <Label Text="1. clean shower tiles and screens" TextColor="Gray" FontSize="Medium"></Label>
+                    <Label Text="2. Clean bath, basin and vanity" TextColor="Gray" FontSize="Medium"></Label>
+                    <Label Text="3. Clean toilet" TextColor="Gray" FontSize="Medium"></Label>
+                    <Label Text="4. Wipe exterior of all cupboards and drawers" TextColor="Gray" FontSize="Medium"></Label>
+                    <Label Text="5. Empty bins" TextColor="Gray" FontSize="Medium"></Label>
+            </StackLayout>
+
+
+            <StackLayout Margin="10">
+           
+                <Label Text="The avoidance of doubt, the following services are not included in the standard cleaning package(not an exhaustive list) " 
+                       TextColor="DarkGray" HorizontalOptions="Center" Margin="0,0,0,10" FontSize="Large"></Label>
+                    <Label Text="Cleaning of ceilings, windows and any other surface outside of normal reach" TextColor="Red" Margin="0,0,0,5" FontSize="Medium" FontAttributes="Bold"></Label>
+                    <Label Text="Cleaning of window blinds and ceiling fans" TextColor="Red" FontSize="Medium" Margin="0,0,0,5" FontAttributes="Bold"></Label>
+                    <Label Text="Cleaning of deep stains, pet messes and other heavy soilings" TextColor="Red" FontSize="Medium" Margin="0,0,0,5" FontAttributes="Bold" ></Label>
+                    <Label Text="Mould removal" TextColor="Red" FontSize="Medium" Margin="0,0,0,5" FontAttributes="Bold"></Label>
+                    <Label Text="Steam cleaning and/or carpet cleaning" TextColor="red" FontSize="Medium" Margin="0,0,0,5" FontAttributes="Bold"></Label>
+                    <Label Text="Lifting heavy items (such as furniture or white goods)" TextColor="Red" FontSize="Medium" Margin="0,0,0,5" FontAttributes="Bold"></Label>
+                    <Label Text="Cleaning or maintainance of outside areas such as garages, patios, decks and gardens" TextColor="Red" Margin="0,0,0,5"  FontSize="Medium" FontAttributes="Bold"></Label>
+                    <Label Text="Cleaning of exteriors, including walls and windows" TextColor="Red" FontSize="Medium" Margin="0,0,0,5" FontAttributes="Bold"></Label>
+                    <Label Text="End of lease Cleanings" TextColor="Red" FontSize="Medium" Margin="0,0,0,5" FontAttributes="Bold"></Label>
+            </StackLayout>
+
+
+
+
+
+
+
+        </StackLayout>
+    </Frame>
+    </ScrollView>
+</AnimePage:AnimationPage>

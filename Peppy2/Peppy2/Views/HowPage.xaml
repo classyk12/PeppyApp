@@ -1,0 +1,54 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<AnimePage:AnimationPage Title="How it works"  xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:AnimePage="clr-namespace:FormsControls.Base;assembly=FormsControls.Base"
+             x:Class="Peppy2.Views.HowPage">
+
+    <AnimePage:AnimationPage.PageAnimation>
+        <AnimePage:FlipPageAnimation Duration="Short" Subtype="FromBottom" />
+    </AnimePage:AnimationPage.PageAnimation>
+
+
+    <ScrollView>
+        <!--<AbsoluteLayout>-->
+
+            
+
+            <StackLayout Margin="10" Spacing="30" x:Name="howSL"  >
+                <!--Padding="50,15,50,0"-->
+
+                <StackLayout Spacing="10" HorizontalOptions="Center" Padding="50,15,50,10">
+                    <!--<Label Text="How it works" TextColor="Purple" FontSize="Large" FontAttributes="Bold"></Label>-->
+                    <Image Source="location.png" Aspect="AspectFit" HeightRequest="50" WidthRequest="50"></Image>
+                    <Label Text="1.Set your Area" TextColor="Purple" FontSize="30" FontAttributes="Bold" HorizontalTextAlignment="Center"></Label>
+                    <Label Text="Enter your area to check to see all cleaners available for you." TextColor="Purple" FontSize="Medium"></Label>
+                </StackLayout>
+
+                <StackLayout Spacing="10" HorizontalOptions="Center" Padding="50,15,50,10">
+                    <Image Source="detailsnew.png" Aspect="AspectFit" HeightRequest="50" WidthRequest="50"></Image>
+                    <Label Text="2.Provide Details" TextColor="Purple" FontSize="30" FontAttributes="Bold" HorizontalTextAlignment="Center"></Label>
+                    <Label Text="Select your Desired Cleaner and your cleaning plan with other required information" TextColor="Purple" FontSize="Medium"></Label>
+                </StackLayout>
+
+                <StackLayout Spacing="10" HorizontalOptions="Center" Padding="50,15,50,10">
+                    <Image Source="debitcardnew.png" Aspect="AspectFit" HeightRequest="50" WidthRequest="50"></Image>
+                    <Label Text="3.Pay Securely" FontSize="30" TextColor="Purple" FontAttributes="Bold" HorizontalTextAlignment="Center"></Label>
+                    <Label Text="Pay Securely online or pay cash on service delivery and manage the booking via the app" TextColor="Purple" FontSize="Medium"></Label>
+                </StackLayout>
+
+                <StackLayout Spacing="10" HorizontalOptions="Center" Padding="50,15,50,10">
+                    <Image Source="newballoon.png" HeightRequest="50" WidthRequest="50" Aspect="AspectFit"></Image>
+                    <Label Text="4.Enjoy" FontAttributes="Bold" FontSize="30" TextColor="Purple" HorizontalTextAlignment="Center"></Label>
+                    <Label Text="Enjoy a fresh and clean home and provide your feedback for constant quality improvement" TextColor="Purple" FontSize="Medium"></Label>
+                </StackLayout>
+                <StackLayout AbsoluteLayout.LayoutBounds="0,1,1,0.05" AbsoluteLayout.LayoutFlags="All" Spacing="0">
+                    <Label Text="      Process sounds apppealing to you? Schedule your cleaning now" TextColor="Purple" FontAttributes="Bold" HorizontalTextAlignment="Center" FontSize="Medium"></Label>
+                <Button x:Name="HowBtn" Text="Find your cleaner" BackgroundColor="Purple" TextColor="White" CornerRadius="20"  Margin="5,0,5,10" Clicked="Button_Clicked"></Button>
+                </StackLayout>
+            </StackLayout>
+
+
+        
+    </ScrollView>
+    
+</AnimePage:AnimationPage>

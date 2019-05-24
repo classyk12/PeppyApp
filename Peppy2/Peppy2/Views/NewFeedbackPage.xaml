@@ -1,0 +1,41 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<AnimePage:AnimationPage Title="Write A Review" xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:AnimePage="clr-namespace:FormsControls.Base;assembly=FormsControls.Base"
+             xmlns:control="clr-namespace:Peppy2.Controls"
+             x:Class="Peppy2.Views.NewFeedbackPage">
+
+    <AnimePage:AnimationPage.PageAnimation>
+        <AnimePage:LandingPageAnimation Duration="Short" Subtype="FromBottom" />
+    </AnimePage:AnimationPage.PageAnimation>
+
+    <ScrollView>
+    <StackLayout Padding="10">
+        <Label Text="Give us your feedback" FontSize="30" TextColor="DarkGray" Margin="0,0,0,10"></Label>
+        <Label Text="Tell us what you love, tell us what you hate and tell us what we can do to serve you better." TextColor="Black" FontSize="Small" Margin="0,0,0,10"></Label>
+        <Label Text="We're a small company trying to give awesome services, so your feedback is essential" FontSize="Small" TextColor="Black" Margin="0,0,0,10"></Label>
+
+        <StackLayout Spacing="1" Margin="0,0,0,10">
+            <Label Text="Title" FontAttributes="Bold" FontSize="Small" TextColor="DarkGray"></Label>
+            <control:BoxEntry x:Name="TitleEntry" HeightRequest="50"></control:BoxEntry>
+        </StackLayout>
+
+        <StackLayout Spacing="1" Margin="0,0,0,10">
+            <Label Text="Body" FontAttributes="Bold" FontSize="Small" TextColor="DarkGray"></Label>
+            <Frame Padding="5" BackgroundColor="White" CornerRadius="10" HasShadow="False" HeightRequest="200">
+                <Editor x:Name="BodyEditor" BackgroundColor="Transparent" TextColor="Black" HeightRequest="200" IsSpellCheckEnabled="True"></Editor>
+            </Frame>
+        </StackLayout>
+
+        <StackLayout Spacing="1" Margin="0,0,0,10">
+            <Label Text="What would you rate us?" FontAttributes="Bold" FontSize="Small" TextColor="DarkGray"></Label>
+            <Picker x:Name="servicepicker" Title="Select a Rating" TextColor="Black" ItemDisplayBinding="{Binding value}"
+                                  SelectedIndexChanged="servicepicker_SelectedIndexChanged" FontSize="Small"></Picker>
+        </StackLayout>
+
+        <Button x:Name="FeedbackBtn" Text="Submit" BackgroundColor="DarkBlue" HorizontalOptions="Center" TextColor="White" BorderRadius="4" FontSize="Small"></Button>
+
+
+    </StackLayout>
+    </ScrollView>
+</AnimePage:AnimationPage>

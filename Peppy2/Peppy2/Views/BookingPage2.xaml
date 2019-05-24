@@ -1,0 +1,51 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage Title="Service Address" xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:local="clr-namespace:Peppy2.Controls"
+             x:Class="Peppy2.Views.BookingPage2">
+    <ScrollView>
+    <StackLayout Padding="20">
+        
+        <Label Text="PLEASE ENTER YOUR VALID DETAILS" TextColor="Gray" FontSize="25" HorizontalOptions="Center" Margin="0,0,0,20"></Label>
+        <StackLayout Spacing="0" Margin="0,0,0,10">
+            <Label Text="Select your City" TextColor="Gray" FontAttributes="Bold" FontSize="Medium"></Label>
+            <Picker x:Name="citypicker" ItemDisplayBinding="{Binding city}" Title="Select your city name" TextColor="DarkGray" HeightRequest="50" WidthRequest="50" FontSize="Small"></Picker>
+        </StackLayout>
+
+        <StackLayout Spacing="0" Margin="0,0,0,10">
+            <Label Text="Street Name" TextColor="Gray" FontAttributes="Bold" FontSize="Medium"></Label>
+            <local:BoxEntry x:Name="streetentry" Placeholder="Enter your street name" FontSize="Small"  TextColor="DarkGray" HeightRequest="50" WidthRequest="30"></local:BoxEntry>
+        </StackLayout>
+
+        <StackLayout Spacing="0" Margin="0,0,0,10">
+            <Label Text="House Number/Apt Number/Building Number" TextColor="Gray" FontAttributes="Bold" FontSize="Medium"></Label>
+            <local:BoxEntry FontSize="Small" x:Name="housenumberentry" Placeholder="Enter your House number" TextColor="DarkGray"  HeightRequest="50" WidthRequest="30"></local:BoxEntry>
+        </StackLayout>
+
+        <StackLayout Spacing="0" Margin="0,0,0,10">
+            <Label Text="Directions and LandMarks(optional)" TextColor="Gray" FontSize="Medium" FontAttributes="Bold"></Label>
+            <local:BoxEntry x:Name="directionsentry" Placeholder="Directions/Landmarks" TextColor="DarkGray" HeightRequest="50" WidthRequest="30" FontSize="Small"></local:BoxEntry>
+        </StackLayout>
+
+        <StackLayout Margin="0,0,0,10" Orientation="Horizontal">
+            <Switch x:Name="petsswitch" OnColor="Purple" ></Switch>
+            <Label Text="I have Pets" FontSize="Small" FontAttributes="Bold" TextColor="Indigo" VerticalOptions="Center"></Label>
+        </StackLayout>
+
+        <StackLayout Margin="0,0,0,10">
+            <Label Text="How will your cleaner get in? Supply all necessary details" TextColor="Gray" FontAttributes="Bold" FontSize="Medium"></Label>
+            <Editor x:Name="detailseditor" FontSize="Small" HeightRequest="100" TextColor="DarkGray" ></Editor>
+        </StackLayout>
+
+        <StackLayout Margin="0,0,0,10">
+            <Label Text="Select a Payment Method" TextColor="Gray" FontAttributes="Bold" FontSize="Medium"></Label>
+            <Picker x:Name="paymentpicker" ItemDisplayBinding="{Binding method}" Title="Select your preferred payment method" TextColor="DarkGray"
+                                HeightRequest="50" WidthRequest="50" FontSize="Small">
+            </Picker>
+        </StackLayout>
+
+        <Button x:Name="nextBtn" Text="Proceed" TextColor="White" BackgroundColor="DarkBlue" Clicked="nextBtn_Clicked" CornerRadius="10"></Button>
+        
+    </StackLayout>
+    </ScrollView>
+</ContentPage>

@@ -1,0 +1,20 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<MasterDetailPage NavigationPage.HasNavigationBar="False" xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="Peppy2.Views.PeppyMasterDetail"
+                  xmlns:local="clr-namespace:Peppy2"
+                  xmlns:local1="clr-namespace:Peppy2.Views">
+
+    <MasterDetailPage.Master>
+        <local1:MasterPage x:Name="mPage"></local1:MasterPage>
+    </MasterDetailPage.Master>
+
+    <MasterDetailPage.Detail>
+        <NavigationPage>
+            <x:Arguments>
+                <local1:Dashboard/>
+                <!--Its front Detail Page Or home page-->
+            </x:Arguments>
+        </NavigationPage>
+    </MasterDetailPage.Detail>
+</MasterDetailPage>

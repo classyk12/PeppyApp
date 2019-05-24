@@ -1,0 +1,145 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage Title="Update Booking" xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:ic="clr-namespace:ImageCircle.Forms.Plugin.Abstractions;assembly=ImageCircle.Forms.Plugin"
+             xmlns:local="clr-namespace:Peppy2.Controls"
+             x:Class="Peppy2.Views.UpdateBookingPage" Padding="10">
+
+    <ScrollView>
+        <StackLayout x:Name="MainSL">
+            <Label x:Name="infoLbl" FontSize="Small" TextColor="Red" HorizontalOptions="Center" IsVisible="False" Margin="10"></Label>
+            <StackLayout x:Name="SL1" Spacing="0" Padding="20,10,20,20">
+                <Label Text="HOW OFTEN DO YOU NEED YOUR CLEANER" TextColor="Gray" FontSize="Small" FontAttributes="Bold"></Label>
+                <Picker x:Name="servicepicker" Title="select a service type" ItemDisplayBinding="{Binding ServiceType}"
+                                    TextColor="DarkGray"  WidthRequest="50" HeightRequest="50" SelectedIndexChanged="servicepicker_SelectedIndexChanged"></Picker>
+                
+                <StackLayout Orientation="Horizontal" Spacing="5">
+                    <Image Source="eyes1.png" Aspect="AspectFit"></Image>
+                    <Label Text="see what is always included" FontSize="Small" TextColor="Indigo" FontAttributes="Bold">
+                        <Label.GestureRecognizers>
+                            <TapGestureRecognizer Tapped="TapGestureRecognizer_Tapped"></TapGestureRecognizer>
+                        </Label.GestureRecognizers>
+                    </Label>
+                </StackLayout>
+            </StackLayout >
+            <StackLayout x:Name="SL2" Spacing="0" Padding="20,0,20,10">
+                <Label Text="HOW LONG DO YOU WANT YOUR CLEANER TO STAY(Hrs)?" FontSize="Small" TextColor="Gray" FontAttributes="Bold"></Label>
+                <Picker x:Name="durationpicker" HeightRequest="50" Title="Select a duration" TextColor="DarkGray"
+                                    WidthRequest="50" ItemDisplayBinding="{Binding stringTime}" SelectedIndexChanged="durationpicker_SelectedIndexChanged"></Picker>
+            </StackLayout>
+            <StackLayout x:Name="SL3"  Spacing="0" Padding="20,10,20,10">
+                <Label Text="WHEN WOULD YOU LIKE YOUR FIRST CLEANING" FontSize="Small" FontAttributes="Bold" TextColor="Gray"></Label>
+                <DatePicker x:Name="startdatepicker" DateSelected="startdatepicker_DateSelected" Format="D"  HeightRequest="50" Date="01/01/2019" TextColor="DarkGray"></DatePicker>
+                <Label x:Name="startdateinfolbl" FontSize="Small" TextColor="Red" FontAttributes="Bold"></Label>
+            </StackLayout>
+            <StackLayout x:Name="SL4" Spacing="0" Padding="20,10,20,10">
+                <Label x:Name="endDateLbl" Text="ALL THROUGH TILL?" FontSize="Small" FontAttributes="Bold" TextColor="Gray"></Label>
+                <DatePicker x:Name="enddatepicker" Format="D" HeightRequest="50" Date="01/01/2019" TextColor="DarkGray" DateSelected="enddatepicker_DateSelected"></DatePicker>
+                <Label x:Name="InfoLbl" FontSize="Small" TextColor="Red" FontAttributes="Bold"></Label>
+            </StackLayout>
+            <StackLayout x:Name="SL5" Spacing="0" Padding="20,10,20,10">
+                <Label Text="WHAT TIME DO YOU PREFER?" FontSize="Small" FontAttributes="Bold" TextColor="Gray"></Label>
+                <TimePicker x:Name="servicetimepicker" Time="07:00"  Format="t"  HeightRequest="50"  TextColor="DarkGray"></TimePicker>
+                <Label Text="please take into consideration that there might be a few minutes of delay due to intense traffic"
+                                           TextColor="DarkRed" FontSize="Small"></Label>
+            </StackLayout>
+
+            <StackLayout x:Name="SL6"  Spacing="0" Padding="20,10,20,10">
+                <Label Text="ANYTHING ELSE WE NEED TO KNOW ABOUT YOUR PLACE? (optional)" FontSize="Small" FontAttributes="Bold" TextColor="Gray"></Label>
+                <Editor x:Name="DescriptionEditor" TextColor="DarkGray" HeightRequest="100"></Editor>
+                <StackLayout Orientation="Horizontal">
+                    <Switch x:Name="ironingswitch" OnColor="Purple" VerticalOptions="Center"></Switch>
+                    <Label Text="I need ironing(+1000 Naira)" TextColor="Black" FontSize="Small" FontAttributes="Bold" VerticalOptions="Center"></Label>
+                </StackLayout>
+                <StackLayout>
+                    <StackLayout Orientation="Horizontal">
+                        <Switch x:Name="materialsswitch" OnColor="Purple"></Switch>
+                        <Label Text="I need cleaning materials(+1550 Naira)" FontSize="Small" TextColor="Black" FontAttributes="Bold" VerticalOptions="Center"></Label>
+                        <Label Text="RECOMMENDED" TextColor="White"  BackgroundColor="Purple" HorizontalOptions="Center" VerticalOptions="Center"></Label>
+                    </StackLayout>
+
+                    <StackLayout Orientation="Horizontal">
+                        <Label Text="Please ensure that you have all cleaning products and equipment prior to the scheduled cleaning."
+                                               TextColor="DarkRed" FontSize="Small"></Label>
+                    </StackLayout>
+                    <StackLayout Orientation="Horizontal" Spacing="2">
+                        <Image Source="eyes1.png" Aspect="AspectFit"></Image>
+                        <Label Text="Show recommended cleaning products and equipments" FontSize="Small" TextColor="Indigo" FontAttributes="Bold">
+                            <Label.GestureRecognizers>
+                                <TapGestureRecognizer Tapped="TapGestureRecognizer_Tapped_1"></TapGestureRecognizer>
+                            </Label.GestureRecognizers>
+                        </Label>
+                    </StackLayout>
+
+                </StackLayout>
+            </StackLayout>
+
+            <Frame Padding="20" BackgroundColor="Lavender" HasShadow="True" OutlineColor="LightGray">
+                <StackLayout >
+                    <StackLayout Orientation="Horizontal"   Spacing="30">
+                        <Label Text="Total Cost" TextColor="Black" FontAttributes="Bold" FontSize="20"></Label>
+                        <Label x:Name="totalcostLbl" TextColor="Black" FontAttributes="Bold" Text="0.00"
+                           HorizontalOptions="EndAndExpand" FontSize="20"></Label>
+                    </StackLayout>
+
+                    <BoxView HeightRequest="1" Color="AliceBlue" Margin="0,5,0,5"></BoxView>
+                    <StackLayout Orientation="Horizontal"  Spacing="30">
+                        <Label Text="VAT" TextColor="Black" FontAttributes="Bold" FontSize="20" HorizontalOptions="Center" HorizontalTextAlignment="Center"></Label>
+                        <Label x:Name="VATcostLbl" TextColor="Black" FontAttributes="Bold" Text="0.00" HorizontalOptions="EndAndExpand" FontSize="20"></Label>
+                    </StackLayout>
+                </StackLayout>
+            </Frame>
+            
+            
+            
+            
+            
+            
+            <BoxView HeightRequest="1" Color="Red" Margin="10"></BoxView>
+            <Label Text="UPDATE CONTACT INFORMATION" FontSize="20" HorizontalOptions="Center" TextColor="DarkGray" FontAttributes="Bold" Margin="5"></Label>
+
+            <StackLayout x:Name="SL7" Spacing="0" Margin="0,0,0,10">
+                <Label Text="Select your City" TextColor="Gray" FontAttributes="Bold" FontSize="Medium"></Label>
+                <Picker x:Name="citypicker" Title="Select your city name" TextColor="DarkGray"  HeightRequest="50"
+                                    WidthRequest="50" ItemDisplayBinding="{Binding city}"></Picker>
+            </StackLayout>
+
+            <StackLayout x:Name="SL8" Spacing="0" Margin="0,0,0,10">
+                <Label Text="Street Name" TextColor="Gray" FontAttributes="Bold" FontSize="Medium"></Label>
+                <local:BoxEntry x:Name="streetentry" Placeholder="Enter your street name"  TextColor="DarkGray" HeightRequest="50" WidthRequest="30"></local:BoxEntry>
+            </StackLayout>
+
+            <StackLayout x:Name="SL9" Spacing="0" Margin="0,0,0,10">
+                <Label Text="House Number/Apt Number/Building Number" TextColor="Gray" FontAttributes="Bold" FontSize="Medium"></Label>
+                <local:BoxEntry x:Name="housenumberentry" Placeholder="Enter your House number" TextColor="DarkGray"  HeightRequest="50" WidthRequest="30"></local:BoxEntry>
+            </StackLayout>
+
+            <StackLayout x:Name="SL10" Spacing="0" Margin="0,0,0,10">
+                <Label Text="Directions and LandMarks(optional)" TextColor="Gray" FontSize="Medium" FontAttributes="Bold"></Label>
+                <local:BoxEntry x:Name="directionsentry" Placeholder="Directions/Landmarks" TextColor="DarkGray" HeightRequest="50" WidthRequest="30"></local:BoxEntry>
+            </StackLayout>
+
+            <StackLayout x:Name="SL11" Margin="0,0,0,10" Orientation="Horizontal">
+                <Switch x:Name="petsswitch" OnColor="Purple" ></Switch>
+                <Label Text="I have Pets" FontSize="Small" FontAttributes="Bold" TextColor="Indigo" VerticalOptions="Center"></Label>
+            </StackLayout>
+
+            <StackLayout x:Name="SL12" Margin="0,0,0,10">
+                <Label Text="How will your cleaner get in? Supply all necessary details" TextColor="Gray" FontAttributes="Bold" FontSize="Medium"></Label>
+                <Editor x:Name="detailseditor" FontSize="Medium" HeightRequest="100" TextColor="DarkGray"></Editor>
+            </StackLayout>
+
+            <StackLayout x:Name="SL13" Margin="0,0,0,10">
+                <Label Text="Select a Payment Method" TextColor="Gray" FontAttributes="Bold" FontSize="Medium"></Label>
+                <Picker x:Name="paymentpicker" Title="Select your preferred payment method" TextColor="DarkGray"
+                                HeightRequest="50" WidthRequest="50"  ItemDisplayBinding="{Binding method}">
+                </Picker>
+            </StackLayout>
+
+            <Button x:Name="updateBtn" Text="Update my Booking" BackgroundColor="DarkBlue" TextColor="White" Margin="5,0,5,10" CornerRadius="10" Clicked="Button_Clicked"></Button>
+        </StackLayout>
+    </ScrollView>
+
+
+
+</ContentPage>
